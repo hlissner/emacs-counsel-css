@@ -143,7 +143,7 @@ If $noexcursion is not-nil cursor doesn't move."
     (return-from counsel-css--selector-next nil))
   (counsel-css--extract-selector))
 
-(defun counsel-css--selector-to-hash ()
+(defun counsel-css--selector-to-hash (&optional no-line-numbers)
   "Collect all selectors and make hash table"
   (let ($selector $paren-beg $paren-end $hash $dep $max $sl
                   $selector-name $selector-beg $selector-end
@@ -174,13 +174,15 @@ If $noexcursion is not-nil cursor doesn't move."
         (if (<= $dep (length $sl))
             (cl-loop repeat (- (1+ (length $sl)) $dep) do (pop $sl)))
         (setq $sl (cons $selector-name $sl))
-        (puthash (format "%s: %s"
-                         (propertize (number-to-string
-                                      $selector-line)
-                                     'face 'font-lock-function-name-face)
-                         (mapconcat 'identity (reverse $sl) " "))
-                 (list $paren-beg $paren-end $dep $selector-beg $selector-end $selector-line)
-                 $hash)))
+        (puthash
+         (if no-line-numbers
+             (mapconcat 'identity (reverse $sl) " ")
+           (format "%s: %s"
+                   (propertize (number-to-string $selector-line)
+                               'face 'font-lock-function-name-face)
+                   (mapconcat 'identity (reverse $sl) " ")))
+         (list $paren-beg $paren-end $dep $selector-beg $selector-end $selector-line)
+         $hash)))
     $hash))
 
 (defun counsel-css--imenu-create-index-function ()
