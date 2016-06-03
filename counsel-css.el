@@ -12,7 +12,9 @@
 ;; Package-Requires: ((counsel "0.7.0"))
 ;;
 ;; This file is not part of GNU Emacs.
-
+;;
+;;; License: GPLv3
+;;
 ;;; Commentary:
 ;;
 ;; This plugin tries to fill that multi-cursor shaped gap in your heart, by integrating

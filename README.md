@@ -1,5 +1,3 @@
-[![MIT](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
-
 # counsel-css
 
 `counsel-css` is an ivy-mode backend for css selectors (works for SCSS and LESS
