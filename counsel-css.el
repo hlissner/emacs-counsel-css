@@ -178,7 +178,7 @@ If $noexcursion is not-nil cursor doesn't move."
                  $hash)))
     $hash))
 
-(defun counsel-css-imenu-create-index-function ()
+(defun counsel-css--imenu-create-index-function ()
   (let (($hash (counsel-css--selector-to-hash)))
     (loop for $k being hash-key in $hash using (hash-values $v)
           collect (cons $k $v))))
