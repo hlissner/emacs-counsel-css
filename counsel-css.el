@@ -6,7 +6,7 @@
 ;; Maintainer: Henrik Lissner <henrik@lissner.net>
 ;; Created: June 3, 2016
 ;; Modified: June 3, 2016
-;; Version: 1.0.0
+;; Version: 1.0.1
 ;; Keywords: counsel, swiper, css, less, scss
 ;; Homepage: https://github.com/hlissner/emacs-counsel-css
 ;; Package-Requires: ((counsel "0.7.0") (cl-lib "0.5))
