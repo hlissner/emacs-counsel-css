@@ -9,7 +9,7 @@
 ;; Version: 1.0.0
 ;; Keywords: counsel, swiper, css, less, scss
 ;; Homepage: https://github.com/hlissner/emacs-counsel-css
-;; Package-Requires: ((counsel "0.7.0"))
+;; Package-Requires: ((counsel "0.7.0") (cl-lib "0.5))
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
@@ -21,6 +21,9 @@
 ;; iedit-mode into evil-mode.
 ;;
 ;;; Code:
+
+(eval-when-compile
+  (require 'cl-lib))
 
 (defgroup counsel-css nil
   "css/less/scss selector-aware swiper."
@@ -66,7 +69,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defun* counsel-css--open-brace-forward (&optional $bound)
+(cl-defun counsel-css--open-brace-forward (&optional $bound)
   "Move to next open brace, skip commented brace"
   (interactive)
   (let ($ret)
@@ -83,7 +86,7 @@
     (setq $text (substring $text (1+ (string-match $key $text)))))
   $text)
 
-(defun* counsel-css--fetch-previous-line (&optional $prev $noexcursion)
+(cl-defun counsel-css--fetch-previous-line (&optional $prev $noexcursion)
   "Return previous nth ($prev) line strings.
 If $noexcursion is not-nil cursor doesn't move."
   ;; In compressed Css without this return, it takes long time
@@ -102,7 +105,7 @@ If $noexcursion is not-nil cursor doesn't move."
   (or $pos (setq $pos (point)))
   (nth 4 (parse-partial-sexp (point-min) $pos)))
 
-(defun* counsel-css--extract-selector ()
+(cl-defun counsel-css--extract-selector ()
   "Return selector infomation at the point"
   (let (($multi "") $s $po1 $po2 $po3 $str $commentp)
     ;; Collect multiple selector across previous lines
@@ -134,7 +137,7 @@ If $noexcursion is not-nil cursor doesn't move."
         (cons (format "%s %s" (string-trim $multi) $str)
               (cons $po3 $po2))))))
 
-(defun* counsel-css--selector-next (&optional $bound)
+(cl-defun counsel-css--selector-next (&optional $bound)
   "Return and goto next selector."
   (unless (counsel-css--open-brace-forward $bound)
     (return-from counsel-css--selector-next nil))
