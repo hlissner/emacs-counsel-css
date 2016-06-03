@@ -8,7 +8,7 @@ too). It also has a hook to integrate its parser into Imenu.
 This is an alternative to [helm-css-scss]. The parser was ~~lifted~~
 **borrowed** from [helm-css-scss], so much of the credit is his.
 
-![screenshot](01.png)
+![screenshot](../screenshots/01.png)
 
 ## Installation
 
