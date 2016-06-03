@@ -172,7 +172,7 @@ If $noexcursion is not-nil cursor doesn't move."
         (setq $selector-end (cddr $selector))
         (setq $selector-line (line-number-at-pos $selector-beg))
         (if (<= $dep (length $sl))
-            (loop repeat (- (1+ (length $sl)) $dep) do (pop $sl)))
+            (cl-loop repeat (- (1+ (length $sl)) $dep) do (pop $sl)))
         (setq $sl (cons $selector-name $sl))
         (puthash (format "%s: %s"
                          (propertize (number-to-string
@@ -184,9 +184,9 @@ If $noexcursion is not-nil cursor doesn't move."
     $hash))
 
 (defun counsel-css--imenu-create-index-function ()
-  (let (($hash (counsel-css--selector-to-hash)))
-    (loop for $k being hash-key in $hash using (hash-values $v)
-          collect (cons $k $v))))
+  (let (($hash (counsel-css--selector-to-hash t)))
+    (cl-loop for $k being hash-key in $hash using (hash-values $v)
+             collect (cons $k $v))))
 
 ;;;###autoload
 (defun counsel-css-imenu-setup ()
@@ -198,8 +198,8 @@ If $noexcursion is not-nil cursor doesn't move."
   (interactive)
   (require 'counsel)
   (ivy-read "Selectors: " (let (($hash (counsel-css--selector-to-hash)))
-                            (loop for $k being hash-key in $hash using (hash-values $v)
-                                  collect (cons $k $v)))
+                            (cl-loop for $k being hash-key in $hash using (hash-values $v)
+                                     collect (cons $k $v)))
             :require-match t
             :caller 'counsel-css))
 
