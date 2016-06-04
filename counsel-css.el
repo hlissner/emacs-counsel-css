@@ -23,7 +23,10 @@
 ;;; Code:
 
 (eval-when-compile
-  (require 'cl-lib))
+  (require 'cl-lib)
+  (require 'subr-x))
+
+(declare-function ivy-read "ivy")
 
 (defgroup counsel-css nil
   "css/less/scss selector-aware swiper."
