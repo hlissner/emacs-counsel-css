@@ -74,7 +74,7 @@
   (interactive)
   (let ($ret)
     (setq $ret (re-search-forward "[^#]{" $bound t))
-    (unless $ret (return-from counsel-css--open-brace-forward nil))
+    (unless $ret (cl-return-from counsel-css--open-brace-forward nil))
     (backward-char)
     (if (counsel-css--comment-p (point))
         (counsel-css--open-brace-forward $bound)
@@ -91,7 +91,7 @@
 If $noexcursion is not-nil cursor doesn't move."
   ;; In compressed Css without this return, it takes long time
   (if (eq 1 (line-number-at-pos))
-      (return-from counsel-css--fetch-previous-line ""))
+      (cl-return-from counsel-css--fetch-previous-line ""))
   (or $prev (setq $prev 1))
   (if $noexcursion (setq $noexcursion (point)))
   (move-beginning-of-line (- 1 $prev))
@@ -140,7 +140,7 @@ If $noexcursion is not-nil cursor doesn't move."
 (cl-defun counsel-css--selector-next (&optional $bound)
   "Return and goto next selector."
   (unless (counsel-css--open-brace-forward $bound)
-    (return-from counsel-css--selector-next nil))
+    (cl-return-from counsel-css--selector-next nil))
   (counsel-css--extract-selector))
 
 (defun counsel-css--selector-to-hash (&optional no-line-numbers)
