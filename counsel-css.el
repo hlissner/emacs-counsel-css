@@ -5,8 +5,8 @@
 ;; Author: Henrik Lissner <http://github/hlissner>
 ;; Maintainer: Henrik Lissner <henrik@lissner.net>
 ;; Created: June 3, 2016
-;; Modified: June 3, 2016
-;; Version: 1.0.1
+;; Modified: June 23, 2016
+;; Version: 1.0.2
 ;; Keywords: counsel, swiper, css, less, scss
 ;; Homepage: https://github.com/hlissner/emacs-counsel-css
 ;; Package-Requires: ((counsel "0.7.0") (cl-lib "0.5))
@@ -28,47 +28,36 @@
 
 (declare-function ivy-read "ivy")
 
-(defgroup counsel-css nil
-  "css/less/scss selector-aware swiper."
-  :prefix "counsel-css-"
-  :group 'ivy)
-
 (defface counsel-css-selector-depth-face-1
   '((((class color) (background dark)) (:foreground "#ffff00"))
     (((class color) (background light)) (:foreground "#0000ff"))
     (t (:foreground "#ffff00")))
-  "Selector depth 1"
-  :group 'counsel-css)
+  "Selector depth 1")
 (defface counsel-css-selector-depth-face-2
   '((((class color) (background dark)) (:foreground "#ffdd00"))
     (((class color) (background light)) (:foreground "#3300ff"))
     (t (:foreground "#ffdd00")))
-  "Selector depth 2"
-  :group 'counsel-css)
+  "Selector depth 2")
 (defface counsel-css-selector-depth-face-3
   '((((class color) (background dark)) (:foreground "#ffbb00"))
     (((class color) (background light)) (:foreground "#6600ff"))
     (t (:foreground "#ffbb00")))
-  "Selector depth 3"
-  :group 'counsel-css)
+  "Selector depth 3")
 (defface counsel-css-selector-depth-face-4
   '((((class color) (background dark)) (:foreground "#ff9900"))
     (((class color) (background light)) (:foreground "#9900ff"))
     (t (:foreground "#ff9900")))
-  "Selector depth 4"
-  :group 'counsel-css)
+  "Selector depth 4")
 (defface counsel-css-selector-depth-face-5
   '((((class color) (background dark)) (:foreground "#ff7700"))
     (((class color) (background light)) (:foreground "#cc00ff"))
     (t (:foreground "#ff7700")))
-  "Selector depth 5"
-  :group 'counsel-css)
+  "Selector depth 5")
 (defface counsel-css-selector-depth-face-6
   '((((class color) (background dark)) (:foreground "#ff5500"))
     (((class color) (background light)) (:foreground "#ff00ff"))
     (t (:foreground "#ff5500")))
-  "Selector depth 6"
-  :group 'counsel-css)
+  "Selector depth 6")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -202,9 +191,10 @@ If $noexcursion is not-nil cursor doesn't move."
 (defun counsel-css ()
   (interactive)
   (require 'counsel)
-  (ivy-read "Selectors: " (let (($hash (counsel-css--selector-to-hash)))
-                            (cl-loop for $k being hash-key in $hash using (hash-values $v)
-                                     collect (cons $k $v)))
+  (ivy-read "Selectors: "
+            (let (($hash (counsel-css--selector-to-hash)))
+              (cl-loop for $k being hash-key in $hash using (hash-values $v)
+                       collect (cons $k $v)))
             :require-match t
             :caller 'counsel-css))
 
