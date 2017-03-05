@@ -9,7 +9,7 @@
 ;; Version: 1.0.3
 ;; Keywords: counsel, swiper, css, less, scss
 ;; Homepage: https://github.com/hlissner/emacs-counsel-css
-;; Package-Requires: ((counsel "0.7.0") (cl-lib "0.5))
+;; Package-Requires: ((counsel "0.7.0") (cl-lib "0.5"))
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
