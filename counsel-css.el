@@ -175,24 +175,25 @@ If $noexcursion is not-nil cursor doesn't move."
          $hash)))
     $hash))
 
-(defun counsel-css--imenu-create-index-function ()
-  (let (($hash (counsel-css--selector-to-hash t)))
+(defun counsel-css--imenu-create-index-function (&optional no-line-numbers)
+  (let (($hash (counsel-css--selector-to-hash (not no-line-numbers))))
     (cl-loop for $k being hash-key in $hash using (hash-values $v)
-             collect (cons $k $v))))
+             collect (cons $k (nth 3 $v)))))
 
 ;;;###autoload
 (defun counsel-css-imenu-setup ()
+  "Set up imenu to recognize css (as well as nested scss/less selectors)."
   (when (memq major-mode '(css-mode scss-mode less-css-mode))
     (setq imenu-create-index-function 'counsel-css--imenu-create-index-function)))
 
 ;;;###autoload
 (defun counsel-css ()
+  "Jump to a css selector."
   (interactive)
   (require 'counsel)
   (ivy-read "Selectors: "
-            (let (($hash (counsel-css--selector-to-hash)))
-              (cl-loop for $k being hash-key in $hash using (hash-values $v)
-                       collect (cons $k $v)))
+            (counsel-css--imenu-create-index-function t)
+            :action (lambda (sel) (with-ivy-window (goto-char (cdr sel))))
             :require-match t
             :caller 'counsel-css))
 
