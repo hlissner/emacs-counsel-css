@@ -1,24 +1,22 @@
 ;;; counsel-css.el --- stylesheet-selector-aware swiper
 ;;
-;; Copyright (C) 2016 Henrik Lissner
+;; Copyright (C) 2016-17 Henrik Lissner
 ;;
 ;; Author: Henrik Lissner <http://github/hlissner>
 ;; Maintainer: Henrik Lissner <henrik@lissner.net>
 ;; Created: June 3, 2016
-;; Modified: June 23, 2016
-;; Version: 1.0.2
+;; Modified: March 4, 2017
+;; Version: 1.0.3
 ;; Keywords: counsel, swiper, css, less, scss
 ;; Homepage: https://github.com/hlissner/emacs-counsel-css
 ;; Package-Requires: ((counsel "0.7.0") (cl-lib "0.5))
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
-;;; License: GPLv3
-;;
 ;;; Commentary:
 ;;
-;; This plugin tries to fill that multi-cursor shaped gap in your heart, by integrating
-;; iedit-mode into evil-mode.
+;; `counsel-css` is an ivy-mode backend for css selectors (works for SCSS and
+;; LESS too). It also has a hook to integrate its parser into Imenu.
 ;;
 ;;; Code:
 
