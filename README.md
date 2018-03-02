@@ -1,3 +1,6 @@
+[![MELPA](http://melpa.org/packages/counsel-css-badge.svg?style=flat-square)](http://melpa.org/#/counsel-css)
+[![GPLv3](https://img.shields.io/badge/license-GPLv3-green.svg?style=flat-square)](./LICENSE)
+
 # counsel-css
 
 `counsel-css` is an ivy-mode backend for css selectors (works for SCSS and LESS
@@ -9,6 +12,8 @@ This is an alternative to [helm-css-scss]. The parser was ~~lifted~~
 ![screenshot](../screenshots/01.png)
 
 ## Installation
+
+`M-x package-install RET counsel-css`
 
 ```emacs-lisp
 (require 'counsel-css)
