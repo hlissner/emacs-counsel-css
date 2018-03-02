@@ -5,8 +5,8 @@
 ;; Author: Henrik Lissner <http://github/hlissner>
 ;; Maintainer: Henrik Lissner <henrik@lissner.net>
 ;; Created: June 3, 2016
-;; Modified: March 4, 2017
-;; Version: 1.0.4
+;; Modified: March 2, 2018
+;; Version: 1.0.5
 ;; Keywords: convenience tools counsel swiper selector css less scss
 ;; Homepage: https://github.com/hlissner/emacs-counsel-css
 ;; Package-Requires: ((emacs "24.4") (counsel "0.7.0") (cl-lib "0.5"))
