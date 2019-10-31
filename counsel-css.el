@@ -35,10 +35,10 @@
 
 (eval-when-compile
   (require 'cl-lib)
-  (require 'subr-x))
+  (require 'subr-x)
+  (require 'counsel))
 
 (declare-function ivy-read "ivy")
-(declare-function with-ivy-window "ivy")
 
 (defgroup counsel-css nil
   "An counsel backend for css/scss/less selectors."
