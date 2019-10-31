@@ -127,8 +127,8 @@ doesn't move."
     ;; Collect multiple selector across previous lines
     ;; (i.e. "div, \n p, \n span {...}")
     (save-excursion
-      (while (string-match ",[\s\t]*$"
-                           (setq s (counsel-css--fetch-previous-line)))
+      (while (string-match-p ",[\s\t]*$"
+                             (setq s (counsel-css--fetch-previous-line)))
         ;; Skip commented selector (i.e. " // .blue,")
         (save-excursion
           (move-beginning-of-line 1)
