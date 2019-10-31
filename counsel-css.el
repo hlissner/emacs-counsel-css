@@ -1,6 +1,6 @@
 ;;; counsel-css.el --- stylesheet-selector-aware swiper
 ;;
-;; Copyright (C) 2016-2018 Henrik Lissner
+;; Copyright (C) 2016-2019 Henrik Lissner
 ;;
 ;; Author: Henrik Lissner <http://github/hlissner>
 ;; Maintainer: Henrik Lissner <henrik@lissner.net>
