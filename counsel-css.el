@@ -1,12 +1,12 @@
 ;;; counsel-css.el --- stylesheet-selector-aware swiper
 ;;
-;; Copyright (C) 2016-2019 Henrik Lissner
+;; Copyright (C) 2016-2020 Henrik Lissner
 ;;
 ;; Author: Henrik Lissner <http://github/hlissner>
 ;; Maintainer: Henrik Lissner <henrik@lissner.net>
 ;; Created: June 3, 2016
-;; Modified: October 30, 2019
-;; Version: 1.0.7
+;; Modified: March 31, 2020
+;; Version: 1.0.8
 ;; Keywords: convenience tools counsel swiper selector css less scss
 ;; Homepage: https://github.com/hlissner/emacs-counsel-css
 ;; Package-Requires: ((emacs "24.4") (counsel "0.7.0") (cl-lib "0.5"))
