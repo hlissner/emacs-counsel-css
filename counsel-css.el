@@ -205,9 +205,8 @@ doesn't move."
 
 ;;;###autoload
 (defun counsel-css-imenu-setup ()
-  "Set up imenu to recognize css (as well as nested scss/less selectors)."
-  (when (memq major-mode '(css-mode scss-mode less-css-mode))
-    (setq imenu-create-index-function 'counsel-css--imenu-create-index-function)))
+  "Set up imenu to recognize css/scss/less/stylus selectors."
+  (setq imenu-create-index-function #'counsel-css--imenu-create-index-function))
 
 ;;;###autoload
 (defun counsel-css ()
