@@ -127,13 +127,13 @@ doesn't move."
     ;; Collect multiple selector across previous lines
     ;; (i.e. "div, \n p, \n span {...}")
     (save-excursion
-      (while (string-match-p ",[\s\t]*$"
+      (while (string-match-p (if (looking-at-p "^[\s\t]*{") "" ",[\s\t]*$")
                              (setq s (counsel-css--fetch-previous-line)))
         ;; Skip commented selector (i.e. " // .blue,")
         (save-excursion
           (move-beginning-of-line 1)
           (setq po3 (point))
-          (setq commentp (counsel-css--comment-p (search-forward ","))))
+          (setq commentp (counsel-css--comment-p (end-of-line))))
         (unless commentp
           (setq multi (format "%s %s" (string-trim s) multi)))))
     ;; Extract selector include one-line-nesting (i.e. "div { p {...} }")
